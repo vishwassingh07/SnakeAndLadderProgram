@@ -8,10 +8,14 @@ namespace SnakeAndLadderProblem
 {
     public class SnakeAndLadderGame
     {
-        public void SnakeandLadder()
+        int position = 0;
+        public int dieRoll()
         {
-            int position = 0;
-            Console.WriteLine("Player Starting Position : {0}", position);
+            Random random = new Random();
+            int diePosition = random.Next(1,7);
+            Console.WriteLine("After rolling the die,the number is : " + diePosition);
+            return diePosition;
+            
         }
     }
 }
