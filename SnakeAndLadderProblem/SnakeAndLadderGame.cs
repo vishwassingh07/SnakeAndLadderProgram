@@ -21,25 +21,33 @@ namespace SnakeAndLadderProblem
             position = position + diePosition;
             Console.WriteLine("Position of Player is : {0}", position);
 
-            int option = random.Next(0,3);
-            
-            switch (option)
+            while (position < 100)
             {
-                case NO_PLAY:
-                    Console.WriteLine("Player stays in the same position");
-                    break;
-                case SNAKE:                  
-                    position -= diePosition;
-                    Console.WriteLine("Player got a snake : {0} ", position);
-                    break;
-                case LADDER:
-                    position += diePosition;
-                    Console.WriteLine("Player got a ladder : {0} ", position);
-                    break;
-                default:
-                    Console.WriteLine("Invalid option");
-                    break;
-            }           
+                int option = random.Next(0, 3);
+
+                switch (option)
+                {
+                    case NO_PLAY:
+                        position += 0;
+                        Console.WriteLine("Player stays in the same position");
+                        break;
+                    case SNAKE:
+                        position -= diePosition;
+                        Console.WriteLine("Player got a snake : {0} ", position);
+                        if (position < 0)
+                        {
+                            position = 0;
+                        }
+                        break;
+                    case LADDER:
+                        position += diePosition;
+                        Console.WriteLine("Player got a ladder : {0} ", position);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option");
+                        break;
+                }
+            }
         }
     }
 }
