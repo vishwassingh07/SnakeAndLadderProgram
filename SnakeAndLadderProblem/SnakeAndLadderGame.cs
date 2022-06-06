@@ -40,7 +40,12 @@ namespace SnakeAndLadderProblem
                         }
                         break;
                     case LADDER:
-                        position += diePosition;
+                        int roll = diePosition;
+                        position += roll;
+                        if(position > 100)
+                        {
+                            position -= roll;
+                        }
                         Console.WriteLine("Player got a ladder : {0} ", position);
                         break;
                     default:
