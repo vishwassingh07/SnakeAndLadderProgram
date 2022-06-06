@@ -8,14 +8,38 @@ namespace SnakeAndLadderProblem
 {
     public class SnakeAndLadderGame
     {
+        const int NO_PLAY = 0, SNAKE = 1, LADDER = 2;
         int position = 0;
-        public int dieRoll()
+        public void Game()
         {
+            Console.WriteLine("Game has started.....");
+
+            Console.WriteLine("Player position is : {0} ", position);
             Random random = new Random();
             int diePosition = random.Next(1,7);
-            Console.WriteLine("After rolling the die,the number is : " + diePosition);
-            return diePosition;
+            Console.WriteLine("After rolling the die,the number is : {0}", diePosition);
+            position = position + diePosition;
+            Console.WriteLine("Position of Player is : {0}", position);
+
+            int option = random.Next(0,3);
             
+            switch (option)
+            {
+                case NO_PLAY:
+                    Console.WriteLine("Player stays in the same position");
+                    break;
+                case SNAKE:                  
+                    position -= diePosition;
+                    Console.WriteLine("Player got a snake : {0} ", position);
+                    break;
+                case LADDER:
+                    position += diePosition;
+                    Console.WriteLine("Player got a ladder : {0} ", position);
+                    break;
+                default:
+                    Console.WriteLine("Invalid option");
+                    break;
+            }           
         }
     }
 }
