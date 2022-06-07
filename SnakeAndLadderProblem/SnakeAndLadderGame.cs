@@ -9,20 +9,21 @@ namespace SnakeAndLadderProblem
     public class SnakeAndLadderGame
     {
         const int NO_PLAY = 0, SNAKE = 1, LADDER = 2;
-        int position = 0;
+        int position = 0, dieCount = 0;
         public void Game()
         {
             Console.WriteLine("Game has started.....");
 
-            Console.WriteLine("Player position is : {0} ", position);
-            Random random = new Random();
-            int diePosition = random.Next(1,7);
-            Console.WriteLine("After rolling the die,the number is : {0}", diePosition);
-            position = position + diePosition;
-            Console.WriteLine("Position of Player is : {0}", position);
+            
 
             while (position < 100)
             {
+                Console.WriteLine("Player position is : {0} ", position);
+                Random random = new Random();
+                int diePosition = random.Next(1, 7);
+                dieCount++;
+                Console.WriteLine("After rolling the die,the number is : {0}", diePosition);
+                Console.WriteLine("Position of Player is : {0}", position);
                 int option = random.Next(0, 3);
 
                 switch (option)
@@ -53,6 +54,7 @@ namespace SnakeAndLadderProblem
                         break;
                 }
             }
+            Console.WriteLine($"number of times die rolled is {dieCount}");
         }
     }
 }
